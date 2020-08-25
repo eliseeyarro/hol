@@ -5,31 +5,26 @@ pipeline {
     }
 
     stages {
-        stage('Hello') {
+        
+        stage('build') {
             steps {
-                echo 'Hello World'
+                echo 'Hello build'
                 sh 'mvn clean'
                 sh 'mvn install'
                 sh 'mvn package'
             }
         }
         
-        stage('build') {
+        stage('test') {
             steps {
-                echo 'Hello build'
+                echo 'Hello test'
+                sleep 3
             }
         }
         
         stage('deploy') {
             steps {
                 echo 'Hello deploy'
-                sleep 3
-            }
-        }
-        
-        stage('test') {
-            steps {
-                echo 'Hello test'
                 sleep 3
             }
         }
